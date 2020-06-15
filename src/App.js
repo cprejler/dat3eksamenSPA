@@ -114,7 +114,7 @@ function Home() {
     <div>
       <div className="container">
         <h2>Hello World</h2>
-        <h3>Please login to see our awesome stuff</h3>
+        <h3>Please login to see the premium features :)</h3>
       </div>
     </div>
   );

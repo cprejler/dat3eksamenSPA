@@ -1,4 +1,4 @@
-const URL = "http://localhost:8080/CA3";
+const URL = "https://casperprejler.xyz/dat3eksamen";
 
 function handleHttpErrors(res) {
   if (!res.ok) {

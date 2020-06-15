@@ -9,10 +9,10 @@ import {
 import "./style.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import facade from "./apiFacade";
-import CatFact from "./CatFact";
-import Pokemon from "./Pokemon";
-import UselessFact from "./UselessFact";
-import KanyeRest from "./KanyeRest";
+import Movie from "./Movie";
+import MovieCount from "./MovieCount";
+import MovieDetailed from "./MovieDetailed";
+import CachedMovie from "./CachedMovie";
 
 export default function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -35,30 +35,27 @@ export default function App() {
           </li>
           {loggedIn && (
             <React.Fragment>
-            <li>
-              <NavLink exact activeClassName="active" to="/catfacts">
-                CatFact
-              </NavLink>
-            </li>
-            <li>
-              <NavLink exact activeClassName="active" to="/pokemon">
-                Pokemon
-              </NavLink>
-            </li>
-            <li>
-              <NavLink exact activeClassName="active" to="/uselessfact">
-                UselessFact
-              </NavLink>
-            </li>
-  
+              <li>
+                <NavLink exact activeClassName="active" to="/MovieCount">
+                  MovieCount
+                </NavLink>
+              </li>
+              <li>
+                <NavLink exact activeClassName="active" to="/MovieDetailed">
+                  MovieDetailed
+                </NavLink>
+              </li>
+              <li>
+                <NavLink exact activeClassName="active" to="/MovieCached">
+                  CacheSearch
+                </NavLink>
+              </li>
             </React.Fragment>
-            
           )}
-          
-         
+
           <li>
-            <NavLink exact activeClassName="active" to="/kanyerest">
-              KanyeRest
+            <NavLink exact activeClassName="active" to="/Movie">
+              Movie
             </NavLink>
           </li>
           <li>
@@ -82,17 +79,8 @@ export default function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/catfacts">
-              <CatFact />
-            </Route>
-            <Route path="/pokemon">
-              <Pokemon />
-            </Route>
-            <Route path="/uselessfact">
-              <UselessFact />
-            </Route>
-            <Route path="/kanyerest">
-              <KanyeRest />
+            <Route path="/movie">
+              <Movie />
             </Route>
             <Route exact path="/login">
               {!loggedIn ? (
@@ -103,6 +91,15 @@ export default function App() {
                   <button onClick={logout}>Logout</button>
                 </div>
               )}
+            </Route>
+            <Route exact path="/MovieCount">
+              {loggedIn ? <MovieCount /> : <div></div>}
+            </Route>
+            <Route exact path="/MovieDetailed">
+              {loggedIn ? <MovieDetailed /> : <div></div>}
+            </Route>
+            <Route exact path="/MovieCached">
+              {loggedIn ? <CachedMovie /> : <div></div>}
             </Route>
           </Switch>
         </div>
@@ -116,11 +113,9 @@ function Home() {
   return (
     <div>
       <div className="container">
-      <h2>Hello World</h2>
-      <h3>Please login to see our  awesome stuff</h3>
+        <h2>Hello World</h2>
+        <h3>Please login to see our awesome stuff</h3>
       </div>
-      
-      
     </div>
   );
 }
